@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\StudentClassController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
@@ -45,4 +46,14 @@ Route::prefix('profile')->group(function(){
     Route::post('/store',[ProfileController::class,'ProfileStore'])->name('profile.store');
     Route::get('/password/view',[ProfileController::class,'PasswordView'])->name('password.view');
     Route::post('/password/update',[ProfileController::class,'PasswordUpdate'])->name('password.update');
+});
+
+
+
+Route::prefix('setups')->group(function(){
+    // Student Class Routes
+    Route::get('student/class/view',[StudentClassController::class,'ViewStudent'])->name('student.class.view');
+    Route::get('student/class/add',[StudentClassController::class,'StudentClassAdd'])->name('student.class.add');
+    Route::get('student/class/store',[StudentClassController::class,'StudentClassStore'])->name('store.student.class');
+
 });
